@@ -12,6 +12,10 @@
 		4CD1578B260640CC001F5524 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD1578A260640CC001F5524 /* ViewController.swift */; };
 		4CD15790260640CD001F5524 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CD1578F260640CD001F5524 /* Assets.xcassets */; };
 		4CD15793260640CD001F5524 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CD15791260640CD001F5524 /* LaunchScreen.storyboard */; };
+		4CD157A4260647DE001F5524 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CD157A0260647DE001F5524 /* RxSwift.framework */; };
+		4CD157A5260647DE001F5524 /* RIBs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CD157A1260647DE001F5524 /* RIBs.framework */; };
+		4CD157A6260647DE001F5524 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CD157A2260647DE001F5524 /* RxCocoa.framework */; };
+		4CD157A7260647DE001F5524 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CD157A3260647DE001F5524 /* RxRelay.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		4CD1578F260640CD001F5524 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4CD15792260640CD001F5524 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CD15794260640CD001F5524 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CD157A0260647DE001F5524 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		4CD157A1260647DE001F5524 /* RIBs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RIBs.framework; path = Carthage/Build/iOS/RIBs.framework; sourceTree = "<group>"; };
+		4CD157A2260647DE001F5524 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		4CD157A3260647DE001F5524 /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +37,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CD157A4260647DE001F5524 /* RxSwift.framework in Frameworks */,
+				4CD157A5260647DE001F5524 /* RIBs.framework in Frameworks */,
+				4CD157A6260647DE001F5524 /* RxCocoa.framework in Frameworks */,
+				4CD157A7260647DE001F5524 /* RxRelay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +52,7 @@
 			children = (
 				4CD15785260640CC001F5524 /* ribs-carthage */,
 				4CD15784260640CC001F5524 /* Products */,
+				4CD1579F260647DE001F5524 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +77,17 @@
 			path = "ribs-carthage";
 			sourceTree = "<group>";
 		};
+		4CD1579F260647DE001F5524 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4CD157A1260647DE001F5524 /* RIBs.framework */,
+				4CD157A2260647DE001F5524 /* RxCocoa.framework */,
+				4CD157A3260647DE001F5524 /* RxRelay.framework */,
+				4CD157A0260647DE001F5524 /* RxSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,6 +98,7 @@
 				4CD1577F260640CC001F5524 /* Sources */,
 				4CD15780260640CC001F5524 /* Frameworks */,
 				4CD15781260640CC001F5524 /* Resources */,
+				4CD1579E26064620001F5524 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -127,6 +152,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4CD1579E26064620001F5524 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/RIBs.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxRelay.framework",
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4CD1577F260640CC001F5524 /* Sources */ = {
@@ -276,6 +326,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FQNL9ZTEMD;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "ribs-carthage/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -295,6 +349,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FQNL9ZTEMD;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "ribs-carthage/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
